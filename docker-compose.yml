@@ -1,0 +1,28 @@
+services:
+  php-server:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: always
+    container_name: php
+    volumes:
+      - "./projetos/:/var/www/html"
+    ports:
+      - "160:80"
+  
+  mysql-server-web:
+    image: mysql:9.0.1
+    restart: always
+    container_name: mysql-web
+    environment:
+      - LANG=C.UTF-8 
+    env_file:
+      - .env
+    volumes:
+      - mysql-volume:/var/lib/mysql
+      - "./scripts/:/var/scripts"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb_unicode_ci
+
+volumes:
+  mysql-volume:
+    driver: local
