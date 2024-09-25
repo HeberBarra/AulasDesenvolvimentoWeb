@@ -1,6 +1,7 @@
 "use strict";
 const formulario = document.querySelector("form");
 const botaoEnviar = document.querySelector("button");
+const botaoSubmit = document.querySelector("button#enviar");
 const inputContaJuridica = document.querySelector("#cj");
 const inputContaFisica = document.querySelector("#cf");
 const inputCnpj = document.querySelector("#cnpj");
@@ -22,32 +23,28 @@ const ativarInput = (botaoRadio, input) => {
     }
 };
 const verificarEmail = () => {
-    let coincidem = inputEmail?.textContent == inputConfirmarEmail?.textContent;
-    console.log(coincidem);
+    let coincidem = inputEmail?.value === inputConfirmarEmail?.value;
     if (avisoEmail == null) {
         return false;
     }
     if (coincidem) {
-        avisoEmail.style.display = "block";
+        avisoEmail.style.display = "none";
     }
     else {
-        avisoEmail.style.display = "none";
+        avisoEmail.style.display = "block";
     }
     return coincidem;
 };
 const verificarSenha = () => {
-    let coincidem = inputSenha?.textContent == inputConfirmarSenha?.textContent;
-    if (inputSenha?.textContent == "" || inputConfirmarSenha?.textContent == "") {
-        return true;
-    }
+    let coincidem = inputSenha?.value == inputConfirmarSenha?.value;
     if (avisoSenha == null) {
         return false;
     }
     if (coincidem) {
-        avisoSenha.style.display = "block";
+        avisoSenha.style.display = "none";
     }
     else {
-        avisoSenha.style.display = "false";
+        avisoSenha.style.display = "block";
     }
     return coincidem;
 };
@@ -67,8 +64,20 @@ inputContaJuridica?.addEventListener("change", () => {
 });
 inputEmail?.addEventListener("input", verificarEmail);
 inputConfirmarEmail?.addEventListener("input", verificarEmail);
+inputSenha?.addEventListener("input", verificarSenha);
+inputConfirmarSenha?.addEventListener("input", verificarSenha);
 botaoEnviar?.addEventListener("click", () => {
-    if (verificarEmail() && verificarSenha()) {
-        formulario?.submit();
+    if (inputEmail?.value == "" || inputConfirmarEmail?.value == "") {
+        return;
     }
+    if (!verificarEmail() || !verificarSenha()) {
+        return;
+    }
+    if (inputSenha?.value == "" || inputConfirmarSenha?.value == "") {
+        return;
+    }
+    if (!verificarSenha()) {
+        return;
+    }
+    botaoSubmit?.click();
 });

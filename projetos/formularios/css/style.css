@@ -65,3 +65,7 @@ form > label, form > label input, label select, div:not(#tipo-conta) {
 form > div {
   display: grid;
 }
+
+button#enviar {
+  display: none;
+}
