@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Bancário</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/index.js" defer></script>
+</head>
+<body>
+    <header>Cadastro Bancário</header>
+    <form action="index.html" method="get">
+        <label><span></span>Nome completo: <input type="text" name="nome-completo" placeholder="Digite seu nome completo" required></label>
+        <div id="tipo-conta">
+            Tipo Conta:
+            <label><input type="radio" value="CJ" name="tipo-conta" id="cj">Conta Jurídica</label>
+            <label><input type="radio" value="CF" name="tipo-conta" id="cf">Conta Física</label>
+        </div>
+        <label>CNPJ: <input type="text" name="cnpj" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}\/[0-9]{4}-[0-9]{2}" placeholder="00.000.000/0001-00" id="cnpj" disabled required></label>
+        <label>CPF: <input type="text" name="cpf" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="000.000.000-00" id="cpf" disabled required></label>
+        <label>Telefone: <input type="tel" name="telefone" required></label>
+        <label>E-Mail: <span class="aviso" id="aviso-email">e-mails não coincidem</span> <input type="email" name="email" id="email" required></label>
+        <label>Confirmar e-mail: <input type="email" name="confirmar-email" id="confirmaremail" required></label>
+        <label>Data de nascimento: <input type="date" name="data-nascimento" required></label>
+        <label>Senha: <span class="aviso" id="aviso-senha">senhas não coincidem</span> <input type="password" name="senha" id="senha" required></label>
+        <label>Confirmar senha: <input type="password" name="confirmar-senha" id="confirmarsenha" required></label>
+        <label>
+            Selecione sua UF
+            <select name="UF">
+                <optgroup label="Norte">
+                    <option value="AC">Acre</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="PA">Pará</option>
+                    <option value="RD">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="TO">Tocantins</option>
+                </optgroup>
+                <optgroup label="Nordeste">
+                    <option value="AL">Alagoas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="SE">Sergipe</option>
+                </optgroup>
+                <optgroup label="Centro-Oeste">
+                    <option value="DF">Distrito Federal</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                </optgroup>
+                <optgroup label="Sudeste">
+                    <option value="ES">Espírito Santo</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="SP">São Paulo</option>
+                </optgroup>
+                <optgroup label="Sul">
+                    <option value="PR">Paraná</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="SC">Santa Catarina</option>
+                </optgroup>
+            </select>
+        </label>
+        <button type="button">ENVIAR</button>
+    </form>
+</body>
+</html>
