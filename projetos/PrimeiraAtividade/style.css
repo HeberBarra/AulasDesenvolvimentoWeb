@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #EEEEEE;
+    height: 75vh;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 100%;
+    width: 70%;
+    gap: 2rem;
+    border: #A9A9A9FF double .2rem;
+    padding: .5rem;
+    background-color: lightblue;
+
+    * {
+        grid-column: 1;
+        width: 100%;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
+div.mensagem {
+    border: #A9A9A9FF double .2rem;
+    padding: .5rem;
+    background-color: lightblue;
+    width: 70%;
+    text-align: center;
+}
