@@ -8,19 +8,37 @@
     <title>Exercício 03</title>
 </head>
 <body>
-<h1>Exercício 03 - Heber Ferreira Barra</h1>
-<form action="exercicio03.php" method="GET">
-    <label>Ana: <input type="text" name="conceito1"></label>
-    <label>Kayo: <input type="text" name="conceito2"></label>
-    <label>Maria: <input type="text" name="conceito3"></label>
-    <label>Pedro: <input type="text" name="conceito4"></label>
-    <label>Renato: <input type="text" name="conceito5"></label>
-</form>
-<?php
-    if (!isset($_GET["conceito1"]) || !isset($_GET["conceito2"]) || !isset($_GET["conceito3"]) || !isset($_GET["conceito4"]) || !isset($_GET["conceito5"]))
-        return;
+    <h1>Exercício 03 - Heber Ferreira Barra</h1>
+    <h2>Tabela de Notas</h2>
+    <form action="exercicio03.php" method="GET">
+        <label>Ana: <input type="text" name="ana"></label>
+        <label>Kayo: <input type="text" name="kayo"></label>
+        <label>Maria: <input type="text" name="maria"></label>
+        <label>Pedro: <input type="text" name="pedro"></label>
+        <label>Renato: <input type="text" name="renato"></label>
+        <button type="submit">ENVIAR</button>
+    </form>
+    <?php
+        if (!isset($_GET["ana"]) || !isset($_GET["kayo"]) || !isset($_GET["maria"]) || !isset($_GET["pedro"]) || !isset($_GET["renato"]))
+            return;
 
+        $conceitos = [];
+        $conceitos[] = $_GET["ana"];
+        $conceitos[] = $_GET["kayo"];
+        $conceitos[] = $_GET["maria"];
+        $conceitos[] = $_GET["pedro"];
+        $conceitos[] = $_GET["renato"];
 
-?>
+        foreach ($conceitos as $nome => $conceito) {
+            echo "Aluno: $nome - Conceito: $conceito - Situação:";
+
+            if ($conceito == "D") {
+                echo "Reprovado<br>";
+                continue;
+            }
+            echo "Aprovado<br>";
+        }
+
+    ?>
 </body>
 </html>
