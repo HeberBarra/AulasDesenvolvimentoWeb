@@ -6,9 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercício 04</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Exercício 04 - Heber Ferreira Barra</h1>
+    <header>
+        <h1>Exercício 04 - Heber Ferreira Barra</h1>
+    </header>
     <form action="exercicio04.php" method="post">
         <label>Nome 1º produto: <input type="text" name="produto1"></label>
         <label>Preço 1º produto: <input type="number" name="preco1" step="0.01"></label>
@@ -38,6 +41,7 @@
         {
 
             $tabela = <<<EOD
+                <div class="resultado">
                 <table>
                     <thead>
                         <tr>
@@ -61,11 +65,12 @@
 
             $tabela .= "</tbody>";
             $tabela .= "</table>";
+            $tabela .= "</div>";
 
             echo  $tabela;
         }
 
-        function valorMaiorQueCinquenta(array $produtos): array {
+        function valorMaiorQueCinquenta(array $produtos): array | null {
             $listaProdutos = null;
             foreach($produtos as $produto => $valor) {
                 if ($valor > 50) {
@@ -76,7 +81,7 @@
             return $listaProdutos;
         }
 
-        function valorMenorQueCem(array $produtos): array {
+        function valorMenorQueCem(array $produtos): array | null {
             $listaProdutos = null;
             foreach($produtos as $produto => $valor) {
                 if ($valor < 100) {
@@ -87,10 +92,10 @@
             return $listaProdutos;
         }
 
-        function imprimirProdutosValoresEspecificos(array $produtos): void {
+        function imprimirProdutosValoresEspecificos(array | null $produtos): void {
 
             if ($produtos == null || count($produtos) == 0) {
-                echo "Nenhum produto foi encontrado com o valor especificado";
+                echo "<div class='resultado'>Nenhum produto foi encontrado com o valor especificado</div>";
                 return;
             }
 
@@ -130,7 +135,9 @@
         imprimirProdutosValoresEspecificos(valorMenorQueCem($produtos));
 
         $produto = encontrarProdutoComMenorPreco($produtos);
+        echo "<div class='resultado'>";
         echo $produto["nome"] . ": R$" . number_format(doubleval($produto["valor"]), 2, ",", ".");
+        echo "</div>";
     ?>
 </body>
 </html>

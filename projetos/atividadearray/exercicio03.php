@@ -6,9 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercício 03</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Exercício 03 - Heber Ferreira Barra</h1>
+    <header>
+        <h1>Exercício 03 - Heber Ferreira Barra</h1>
+    </header>
     <h2>Tabela de Notas</h2>
     <form action="exercicio03.php" method="GET">
         <label>Ana: <input type="text" name="ana"></label>
@@ -21,6 +24,8 @@
     <?php
         if (!isset($_GET["ana"]) || !isset($_GET["kayo"]) || !isset($_GET["maria"]) || !isset($_GET["pedro"]) || !isset($_GET["renato"]))
             return;
+
+        echo "<div class='resultado'>";
 
         $conceitos = [];
         $conceitos[] = $_GET["ana"];
@@ -39,6 +44,7 @@
             echo "Aprovado<br>";
         }
 
+        echo "</div>";
     ?>
 </body>
 </html>
