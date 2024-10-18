@@ -28,17 +28,17 @@
         echo "<div class='resultado'>";
 
         $conceitos = [];
-        $conceitos[] = $_GET["ana"];
-        $conceitos[] = $_GET["kayo"];
-        $conceitos[] = $_GET["maria"];
-        $conceitos[] = $_GET["pedro"];
-        $conceitos[] = $_GET["renato"];
+        $conceitos["Ana"] = $_GET["ana"];
+        $conceitos["Kayo"] = $_GET["kayo"];
+        $conceitos["Maria"] = $_GET["maria"];
+        $conceitos["Pedro"] = $_GET["pedro"];
+        $conceitos["Renato"] = $_GET["renato"];
 
         $tabela = <<<EOD
         <table>
             <thead>
                 <tr>
-                    <th scope="col">Código Aluno</th>
+                    <th scope="col">Aluno</th>
                     <th scope="col">Conceito</th>
                     <th scope="col">Situação</th>
                 </tr>
@@ -51,7 +51,7 @@
             $tabela .= "<tr><td>$nome</td><td>$conceito</td>";
 
             if ($conceito == "D") {
-                $tabela .= "<td>Reprovado</td></tr>";
+                $tabela .= "<td><span class='reprovado'>Reprovado<span></td></tr>";
                 continue;
             }
             $tabela .= "<td>Aprovado</td></tr>";

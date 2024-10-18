@@ -68,6 +68,10 @@ span.aviso {
     display: none;
 }
 
+span.reprovado {
+    color: #FF0000;
+}
+
 form > label, form > label input, label select, form > div:not(#tipo-conta) {
     width: 100%;
     grid-column: 1;
