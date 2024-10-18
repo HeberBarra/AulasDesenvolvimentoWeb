@@ -34,16 +34,31 @@
         $conceitos[] = $_GET["pedro"];
         $conceitos[] = $_GET["renato"];
 
+        $tabela = <<<EOD
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Código Aluno</th>
+                    <th scope="col">Conceito</th>
+                    <th scope="col">Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+        EOD;
+
+
         foreach ($conceitos as $nome => $conceito) {
-            echo "Aluno: $nome - Conceito: $conceito - Situação:";
+            $tabela .= "<tr><td>$nome</td><td>$conceito</td>";
 
             if ($conceito == "D") {
-                echo "Reprovado<br>";
+                $tabela .= "<td>Reprovado</td></tr>";
                 continue;
             }
-            echo "Aprovado<br>";
+            $tabela .= "<td>Aprovado</td></tr>";
         }
 
+        $tabela .= "</tbody></table>";
+        echo $tabela;
         echo "</div>";
     ?>
 </body>
